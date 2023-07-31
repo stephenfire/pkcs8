@@ -15,11 +15,20 @@ import (
 
 // DefaultOpts are the default options for encrypting a key if none are given.
 // The defaults can be changed by the library user.
+// var DefaultOpts = &Opts{
+// 	Cipher: AES256CBC,
+// 	KDFOpts: PBKDF2Opts{
+// 		SaltSize:       8,
+// 		IterationCount: 10000,
+// 		HMACHash:       crypto.SHA256,
+// 	},
+// }
+
 var DefaultOpts = &Opts{
-	Cipher: AES256CBC,
+	Cipher: AES256GCM,
 	KDFOpts: PBKDF2Opts{
-		SaltSize:       8,
-		IterationCount: 10000,
+		SaltSize:       16,
+		IterationCount: 10240,
 		HMACHash:       crypto.SHA256,
 	},
 }
